@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "TrustCircle decentralized community escrow marketplace backend",
   "main": "index.js",
+  "engines": {
+  "node": "24.x"
+},
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js"
