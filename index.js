@@ -60,6 +60,25 @@ console.log("PostgreSQL connected!");
     );
 });
 
+
+app.get("/db-test", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+
+    res.json({
+      connected: true,
+      databaseTime: result.rows[0].now
+    });
+  } catch (error) {
+    console.error("Database test error:", error.message);
+
+    res.status(500).json({
+      connected: false,
+      error: error.message
+    });
+  }
+});
+
 // =========================
 // START SERVER
 // =========================
